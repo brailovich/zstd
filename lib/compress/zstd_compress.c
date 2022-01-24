@@ -5995,10 +5995,10 @@ static ZSTD_sequenceCopier ZSTD_selectSequenceCopier(ZSTD_sequenceFormat_e mode)
     return sequenceCopier;
 }
 
-/* Discover the size of next by searching for the block delimiter.
- * Note that a block delimiter must exist in this mode,
+/* Discover the size of next block by searching for the delimiter.
+ * Note that a block delimiter **must** exist in this mode,
  * otherwise it's an input error.
- * The value retrieved will be later compared to ensure it remains within bounds */
+ * The block size retrieved will be later compared to ensure it remains within bounds */
 static size_t
 blockSize_explicitDelimiter(const ZSTD_Sequence* inSeqs, size_t inSeqsSize, ZSTD_sequencePosition seqPos)
 {
